@@ -98,7 +98,7 @@ namevar=np.array(['fy','Z','Mu'])
 mux0=np.array([40.00,50.00,1000.00])
 sigmax0=np.array([5.00,2.50,200.00])
 # Names of the probability density functions of the variables x
-dist=['normal','normal','gumbel']
+dist=['lognormal','lognormal','gumbel']
 #
 # Correlation matrix
 #
@@ -191,7 +191,7 @@ while (erro1>epsilon or erro2>delta) and kiter<100:
 #
 # b. Calculation of the partial derivatives of g(x) in relation to yk
 #
-    gradyk=Jxy.dot(gradxk)
+    gradyk=np.transpose(Jxy).dot(gradxk)
     normgradyk=np.linalg.norm(gradyk)
 #
 # c. Calculation of the direction cosines for xk
