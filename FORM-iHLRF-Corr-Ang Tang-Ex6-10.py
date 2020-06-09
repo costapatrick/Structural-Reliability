@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed May 13 18:52:04 2020
-FORM-HLRF algorithm Haldar and Mahadevan,
-Probability, Reliability and Statistical Methods in Engineering Design
-Page 207.
-@author: MVREAL
+FORM-iHLRF algorithm according to Beck,A.T.; Confiabilidade e Segurança das Estruturas
+Rio de Janeiro, Elsevier, 2019. (Reliability and Safety of Structures).
+@author: Mauro de Vasconcellos Real
 """
 import numpy as np
 from scipy import optimize
@@ -17,7 +16,7 @@ import pandas as pd
 # This function is used to evaluate the value of g(x)
 # and the derivatives of g(x)
 #
-# Step 0 - Example 6.10- , 1984, pag. 368
+# Step 0 - Example 6.10- A, 1984, pag. 368
 #
 def gfunc1(x):
     g=x[0]*x[1]-x[2]
@@ -29,7 +28,6 @@ def mfunc(normy,g,c):
     my=1./2.*normy**2+c*np.abs(g)
     return my
 #
-
 #
 # Equivalent normal distribution parameters
 # xval = value of the variable x (scalar)
