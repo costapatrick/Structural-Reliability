@@ -109,17 +109,13 @@ Rz=np.array([[1.00,0.40,0.00],[0.40,1.00,0.00],[0.00,0.00,1.00]])
 #          Jacobian matrices Jxz and Jzx
 #
 Imatrix=np.eye(n)
-
+#
+# Cholesky decomposition of the correlation matrix
+#
 L=scipy.linalg.cholesky(Rz, lower=True)
 Jzy=np.copy(L)
 Jyz=np.linalg.inv(L)
-"""
-eigvals, eigvecs =scipy.linalg.eig(Rz)
-Lambdamatrix=eigvals.real*Imatrix
-Amatrix=np.transpose(eigvecs.real)
-Jzy=np.transpose(np.dot(Lambdamatrix**(1./2.),Amatrix))
-Jyz=np.transpose(np.dot(Amatrix,(np.linalg.inv(Lambdamatrix)**1./2.)))
-"""
+
 #
 # Step 2 - Initialize de xk value with mux0
 #
